@@ -5,6 +5,7 @@ const searchFood = () => {
   const searchText = searchField.value;
 
   searchField.value = "";
+
   const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
   fetch(url)
     .then((res) => res.json())
@@ -15,10 +16,8 @@ const loadRecipie = (foods) => {
   const recipieContainer = document.getElementById("recipies");
   recipieContainer.textContent = "";
   recipieDetail.textContent = "";
-  //   console.log(foods);
 
   foods.forEach((food) => {
-    // console.log(food);
     const recipieDiv = document.createElement("div");
 
     recipieDiv.classList.add("col");
