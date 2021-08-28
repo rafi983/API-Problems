@@ -1,15 +1,15 @@
 const recipieDetail = document.getElementById("recipie-detail");
 
-const searchFood = () => {
+const searchFood = async () => {
   const searchField = document.getElementById("search-field");
   const searchText = searchField.value;
 
   searchField.value = "";
 
   const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchText}`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => loadRecipie(data.meals));
+  const res = await fetch(url);
+  const data = await res.json();
+  loadRecipie(data.meals);
 };
 
 const loadRecipie = (foods) => {
@@ -36,12 +36,13 @@ const loadRecipie = (foods) => {
   });
 };
 
-const loadRecipieById = (foodId) => {
+const loadRecipieById = async (foodId) => {
   console.log(foodId);
   const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${foodId}`;
-  fetch(url)
-    .then((res) => res.json())
-    .then((data) => loadRecipieDetail(data.meals[0]));
+
+  const res = await fetch(url);
+  const data = await res.json();
+  loadRecipieDetail(data.meals[0]);
 };
 
 const loadRecipieDetail = (foodDetail) => {
