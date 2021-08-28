@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sports DB</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We"
+      crossorigin="anonymous"
+    />
+    <style>
+      #team-detail {
+        width: 700px;
+        margin-left: 30rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 class="text-center">Search your favourite team</h1>
+
+    <div class="input-group mx-auto w-50 mt-5">
+      <input
+        type="text"
+        class="form-control"
+        id="search-field"
+        placeholder="Search your favourite team"
+        aria-label="Search your favourite team"
+        aria-describedby="button-addon2"
+      />
+      <button
+        onclick="searchTeam()"
+        class="btn btn-warning"
+        type="button"
+        id="button-addon2"
+      >
+        Search
+      </button>
+    </div>
+
+    <div id="team-detail"></div>
+
+    <div
+      id="team-info"
+      class="row row-cols-1 row-cols-md-3 g-4 mx-2 mt-5"
+    ></div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>
