@@ -15,7 +15,7 @@ searchBtn.addEventListener("click", function () {
   //   Clear
   countryContainer.innerHTML = "";
   countryDetails.innerHTML = "";
-  const url = `https://restcountries.eu/rest/v2/name/${search}`;
+  const url = `https://restcountries.com/v2/name/${search}`;
   spinner.classList.remove("d-none");
   fetch(url)
     .then((res) => res.json())
@@ -38,14 +38,14 @@ function showData(countryArray) {
   }
 
   countryArray.forEach((item) => {
-    console.log(item.flag);
+    console.log(item.flags[0]);
     const div = document.createElement("div");
     div.classList.add("col-md-3");
     div.innerHTML = `
       <!-- Image -->
       <div class="rounded overflow-hidden border p-2">
         <img
-          src="${item.flag}"
+          src="${item.flags[0]}"
           class="w-100"
           alt=""
         />
@@ -69,7 +69,7 @@ function showData(countryArray) {
   });
 }
 function showDetails(alpha3Code) {
-  fetch(`https://restcountries.eu/rest/v2/alpha/${alpha3Code}`)
+  fetch(`https://restcountries.com/v2/alpha/${alpha3Code}`)
     .then((res) => res.json())
     .then((data) => {
       console.log(data.currencies[0].name);
